@@ -1,1 +1,5 @@
+1. hashmap: dictionary, keys to find the values
+O(n) solution: hashmap
+3. longest substring
 
+sliding windwos O(n)
