@@ -181,7 +181,44 @@ def first(nums):
             arr[nums[i]-1] += 1
     for i in range(N):
         if arr[i] == 0: return i+1
-            
+      
+49. Group Anagrams
+My solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        temp = []
+        for char in strs:
+            list1  = []
+            for i in char:
+                list1.append(i)
+            list2 = sorted(list1)
+            temp.append(list2)
+        set1 = []
+        for char in temp:
+            if char not in set1:
+                set1.append(char)
+        result = []
+        for i in range(len(set1)):
+            index_list = [k for k,v in enumerate(temp) if v == set1[i]]
+            value_list = [strs[k] for k in index_list]
+            result.append(value_list)
+        return result
+
+
+Hash Map:        
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        ans = []
+        map1 = {}
+        count = 0
+        for char in strs:
+            temp = "".join(sorted(char))
+            if temp not in map1:
+                map1[temp] = count
+                count += 1
+                ans.append([])
+            ans[(map1[temp])].append(char)
+        return ans
+
 
 
 
