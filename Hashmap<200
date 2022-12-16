@@ -161,7 +161,16 @@ class Solution:
                     return False
         return True
             
-
+41. First Missing Positive
+class Solution:
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        seen = set()
+        output = 1
+        for n in nums:
+            seen.add(n)
+            while output in seen:
+                output += 1
+        return output
 
 
 
