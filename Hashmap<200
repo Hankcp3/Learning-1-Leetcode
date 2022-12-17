@@ -218,8 +218,28 @@ class Solution:
                 ans.append([])
             ans[(map1[temp])].append(char)
         return ans
-
-
+        
+73. Set Matrix Zeroes
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        row_n = len(matrix)
+        col_n = len(matrix[0])
+        list1  =[]
+        for i in range(row_n):
+            for j in range(col_n):
+                if matrix[i][j] == 0:
+                    list1.append((i,j))
+        for temp in list1:
+            #row = 0
+            matrix[temp[0]] = [0]*col_n
+            #col = 0
+            for k in range(row_n):
+                matrix[k][temp[1]] = 0
+        
+                
 
 
 
