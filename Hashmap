@@ -1,4 +1,4 @@
-1. hashmap: dictionary, keys to find the values
+1. hashmap: dictionary, keys to find the values, or sliding windows from left to right
 O(n) solution: hashmap
 3. longest substring
 methid1:all substring
