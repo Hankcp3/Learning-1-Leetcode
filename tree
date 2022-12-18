@@ -1,5 +1,29 @@
 https://www.youtube.com/watch?v=_1ZJ343CYIU
+#tips:use deque popleft() or pop() , not list[-1] or list[0], because faster and can delete the first and last element. O(1)<O(N)
 105	
-Construct Binary Tree from Preorder and Inorder Traversal	61.0%	Medium	
+Construct Binary Tree from Preorder and Inorder Traversal
+class Solution:
+    from collections import deque
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        preorder = deque(preorder)
+        def rec(preorder,inorder):
+            if not preorder or not inorder: return None
+            tree = TreeNode(preorder.popleft())
+            mid = inorder.index(tree.val)
+            tree.left = rec(preorder,inorder[:mid])
+            tree.right = rec(preorder,inorder[mid+1:])
+            return tree
+        return rec(preorder,inorder)
+
 106	
 Construct Binary Tree from Inorder and Postorder Traversal
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        def rec(inorder,postorder):
+            if not inorder or not postorder: return None
+            tree = TreeNode(postorder.pop())
+            mid = inorder.index(tree.val)
+            tree.right = rec(inorder[mid+1:],postorder)
+            tree.left = rec(inorder[:mid],postorder)
+            return tree
+        return rec(inorder,postorder)
