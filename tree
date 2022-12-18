@@ -1,5 +1,7 @@
 https://www.youtube.com/watch?v=_1ZJ343CYIU
-#tips:use deque popleft() or pop() , not list[-1] or list[0], because faster and can delete the first and last element. O(1)<O(N)
+#tips:
+1. recursive.
+2. use deque popleft() or pop() , not list[-1] or list[0], because faster and can delete the first and last element. O(1)<O(N)
 105	
 Construct Binary Tree from Preorder and Inorder Traversal
 class Solution:
