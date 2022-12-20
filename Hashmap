@@ -329,6 +329,35 @@ BFS + hashmap
             res += 1
         return 0
 
+128. Longest Consecutive Sequence
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums.sort()
+        maxlength = 1
+        currentlength = 1
+        if not nums:
+            return 0
+        for i in range(1,len(nums)):
+            if nums[i] != nums[i-1]:
+                if nums[i]== nums[i-1]+1:
+                    currentlength += 1
+                else:
+                    maxlength = max(maxlength,currentlength)
+                    currentlength = 1
+        return max(maxlength,currentlength)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
