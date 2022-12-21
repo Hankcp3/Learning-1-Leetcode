@@ -10,3 +10,17 @@ class Solution:
             seen.add(cur)
             cur = cur.next
         return False
+
+142. Linked List Cycle II
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        seen = set()
+        cur = head
+        while cur:
+            if cur in seen:
+                return cur
+            seen.add(cur)
+            cur = cur.next
+        return None
+
+smart way:
