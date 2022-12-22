@@ -24,3 +24,19 @@ class Solution:
         return None
 
 smart way:
+
+160. Intersection of Two Linked Lists
+My solution: Hashmap:
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        cur1 = headA
+        cur2 = headB
+        hashset = set()
+        while cur1:
+            hashset.add(cur1)
+            cur1 = cur1.next
+        while cur2:
+            if cur2 in hashset:
+                return cur2
+            cur2 = cur2.next
+        return None
