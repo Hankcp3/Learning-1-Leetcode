@@ -40,3 +40,13 @@ class Solution:
                 return cur2
             cur2 = cur2.next
         return None
+        
+O(1) Memory:
+https://www.youtube.com/watch?v=D0X0BONOQhI
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        l1,l2 = headA,headB
+        while l1 != l2:
+            l1 = l1.next if l1 else headB
+            l2 = l2.next if l2 else headA
+        return l1
