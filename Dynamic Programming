@@ -21,4 +21,20 @@ class Solution:
                     resLen = r-l+1
                 l-=1
                 r+=1
-        return res     
+        return res  
+        
+22. Generate Parentheses
+https://www.youtube.com/watch?v=s9fokUqJ76A
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res = []
+        def backtracing(openN, closeN, stack):
+            if openN == closeN == n:
+                res.append("".join(stack))
+                return
+            if openN < n:
+                backtracing(openN+1,closeN,stack+["("])
+            if closeN < openN:
+                backtracing(openN, closeN+1,stack+[")"])
+        backtracing(0,0,[])
+        return res
