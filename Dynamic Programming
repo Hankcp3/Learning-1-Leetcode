@@ -38,3 +38,39 @@ class Solution:
                 backtracing(openN, closeN+1,stack+[")"])
         backtracing(0,0,[])
         return res
+        
+45. Jump Game II
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        res = 0
+        l = r = 0
+        while (r<len(nums)-1):
+            farthest = 0
+            for i in range(l,r+1):
+                farthest = max(farthest,i+nums[i])
+            l = r+1
+            r = farthest
+            res += 1
+        return res
+55. Jump Game
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+
+        if len(nums) == 1:
+            return True
+
+        l=r=0
+        while (r<len(nums)-1):
+            farest = 0
+            for i in range(l,r+1):
+                farest = max(farest,i+nums[i])
+            if farest == 0:
+                return False
+            l = r+1
+            r = farest
+            if l <= len(nums)-1 <= r:
+                return True
+        return False
+        
+
+        
