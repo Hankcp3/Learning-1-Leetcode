@@ -52,6 +52,8 @@ class Solution:
             r = farthest
             res += 1
         return res
+        
+        
 55. Jump Game
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -72,5 +74,17 @@ class Solution:
                 return True
         return False
         
-
+        
+53. Maximum Subarray 
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        maxsub = nums[0]
+        curnum = 0
+        for n in nums:
+            if curnum<0:
+                curnum = 0
+            curnum += n
+            maxsub = max(maxsub, curnum)
+        return maxsub
+        
         
