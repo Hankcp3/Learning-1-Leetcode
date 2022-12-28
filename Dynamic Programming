@@ -87,4 +87,38 @@ class Solution:
             maxsub = max(maxsub, curnum)
         return maxsub
         
+62. Unique Paths        
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        rows = [1]*n
+        for i in range(m-1):
+            newrows = [1]*n
+            for j in range(n-2,-1,-1):
+                newrows[j] = newrows[j+1]+rows[j]
+            rows = newrows
+        return rows[0]       
         
+63. Unique Patha II
+class Solution:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        m  = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+        countgrid = [[0]*n for _ in range(m)]
+        if m==0 and n==0:
+            return 0
+        if obstacleGrid[0][0] == 0:
+            countgrid[0][0] = 1
+        for i in range(m):
+            for j in range(n):
+                if i ==0 and j == 0:
+                    continue
+                if obstacleGrid[i][j] == 1:
+                    continue
+                if i == 0:
+                    countgrid[i][j] = countgrid[i][j-1]
+                    continue
+                if j == 0:
+                    countgrid[i][j] = countgrid[i-1][j]
+                    continue
+                countgrid[i][j] = countgrid[i-1][j]+countgrid[i][j-1]
+        return countgrid[m-1][n-1]
