@@ -122,3 +122,18 @@ class Solution:
                     continue
                 countgrid[i][j] = countgrid[i-1][j]+countgrid[i][j-1]
         return countgrid[m-1][n-1]
+	
+64. Minimum Path Sum        
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        rows = len(grid)
+        cols = len(grid[0])
+        res = [[float("inf")]*(cols+1) for _ in range(rows+1)]
+        res[rows][cols-1] = 0 #it can be random
+        for i in range(rows-1,-1,-1):
+            for j in range(cols-1,-1,-1):
+                res[i][j] = grid[i][j]+min(res[i+1][j],res[i][j+1])
+        return res[0][0]
+        
+
+        
