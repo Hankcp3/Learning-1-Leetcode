@@ -134,6 +134,16 @@ class Solution:
             for j in range(cols-1,-1,-1):
                 res[i][j] = grid[i][j]+min(res[i+1][j],res[i][j+1])
         return res[0][0]
-        
+	
+70. Climbing Stairs     
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        one,two = 1,1
+        for i in range(n-1):
+            temp = one
+            one = one+two
+            two = temp
+        return one
+
 
         
